@@ -51,7 +51,8 @@ Subsequently, the virus identifies the original ELF executable within it. It is 
 - Infection Mechanism
   1. Check if a file is an ELF executable by comparing the magic bytes.
   2. Determine whether the ELF file has already been infected by looking for the virus signature.
-  3. Prepend the virus code and signature to the start of an uninfected ELF file.
+  3. Check if the file is write or read protected.
+  4. Prepend the virus code and signature to the start of an uninfected ELF file.
 
 - Preserving Host Functionality
   1. Extract and execute the original ELF executable, passing along any command-line arguments it received.
