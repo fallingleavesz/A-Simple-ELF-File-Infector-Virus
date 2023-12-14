@@ -1,4 +1,4 @@
-# A-Simple-Virus-ELF-Infector
+# A Simple Virus: ELF File Infector
 
 **Intro**
 
