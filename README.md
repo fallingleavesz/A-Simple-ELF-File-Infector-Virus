@@ -33,11 +33,13 @@ Structure of the ELF file after being infected
 
 
 
+
 **Technical Overview**
 
 When the infected ELF executable runs, it first activates the virus code, which is an ELF file itself positioned at the start and is itself an ELF file. The virus then executes its payload (printing the message `Hello! I am a simple virus!` as a benign demonstration), and then seeks out another ELF file to infect. 
 
 Subsequently, the virus identifies the original ELF executable within it. It is feasible because the lengths of both the virus ELF and signature are fixed. After pinpointing the original executable, the virus forwards any arguments it received to this executable and launches it, thereby maintaining the host program's intended functionality.
+
 
 
 
