@@ -7,7 +7,7 @@
 #include <sys/stat.h>
 #include <sys/wait.h> // For waitpid
 
-#define SIGNATURE "Hello World by Xiaofan"
+#define SIGNATURE "Hello World by Heibaiz"
 #define SIGNATURE_SIZE (sizeof(SIGNATURE) - 1) // Minus 1 to exclude the null terminator
 
 #define VIRUS_SIZE 18104  // Size of the virus ELF file
