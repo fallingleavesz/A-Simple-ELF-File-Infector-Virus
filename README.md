@@ -31,7 +31,7 @@ Structure of the ELF file after being infected
 +-----------------+
 ```
 
-
+</br>
 
 
 **Technical Overview**
@@ -41,7 +41,7 @@ When the infected ELF executable runs, it first activates the virus code, which 
 Subsequently, the virus identifies the original ELF executable within it. It is feasible because the lengths of both the virus ELF and signature are fixed. After pinpointing the original executable, the virus forwards any arguments it received to this executable and launches it, thereby maintaining the host program's intended functionality.
 
 
-
+</br>
 
 **Virus Activity Breakdown**
 
