@@ -3,46 +3,46 @@ Try these tests:
 1.) Make sure invoking your virus stand-alone as ./virus works -- it should not
 crash:
 
-husky080@master:~/test.ek$ ./virus 2>&1
+Linux@master:~/test.ek$ ./virus 2>&1
 Hello! I am a simple virus!
 
 2.) Copy /bin/echo to the directory where your virus is and test it:
 
-husky080@master:~/test.ek$ cp /bin/echo .
-husky080@master:~/test.ek$ ls
+Linux@master:~/test.ek$ cp /bin/echo .
+Linux@master:~/test.ek$ ls
 echo  sometext.txt  virus
-husky080@master:~/test.ek$ ./virus 2>&1
+Linux@master:~/test.ek$ ./virus 2>&1
 Hello! I am a simple virus!
-husky080@master:~/test.ek$ ./echo Engin
+Linux@master:~/test.ek$ ./echo Engin
 Hello! I am a simple virus!
 Engin
 
 3.) Copy /bin/ls to the directory where your virus is and test it:
 
-husky080@master:~/test.ek$ cp /bin/ls .
-husky080@master:~/test.ek$ ./echo 2>&1
+Linux@master:~/test.ek$ cp /bin/ls .
+Linux@master:~/test.ek$ ./echo 2>&1
 Hello! I am a simple virus!
 
-husky080@master:~/test.ek$ ./ls 2>&1
+Linux@master:~/test.ek$ ./ls 2>&1
 Hello! I am a simple virus!
 echo  ls  sometext.txt  virus
 
 4.) Copy /bin/cat and /bin/grep where your virus is and test that your virus is
 robust:
 
-husky080@master:~/test.ek$ cp /bin/cat .
-husky080@master:~/test.ek$ cp /bin/grep .
-husky080@master:~/test.ek$ chmod u-w-r grep
-husky080@master:~/test.ek$ ./ls 2>&1
+Linux@master:~/test.ek$ cp /bin/cat .
+Linux@master:~/test.ek$ cp /bin/grep .
+Linux@master:~/test.ek$ chmod u-w-r grep
+Linux@master:~/test.ek$ ./ls 2>&1
 Hello! I am a simple virus!
 cat  echo  grep  ls  sometext.txt  virus
-husky080@master:~/test.ek$ ./cat sometext.txt -n 2>&1
+Linux@master:~/test.ek$ ./cat sometext.txt -n 2>&1
 Hello! I am a simple virus!
      1  Hello world!
 
 5.) Invoke ./echo again to make sure that the output is the same:
 
-husky080@master:~/test.ek$ ./echo Engin
+Linux@master:~/test.ek$ ./echo Engin
 Hello! I am a simple virus!
 Engin
 
