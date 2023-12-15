@@ -2,8 +2,7 @@
 
 **Intro**
 
-A simple Linux virus that infects one Linux ELF executable at a time in the directory that it is started in while maintaining the original functionality of the host application.
-
+A simple Linux virus that infects one Linux ELF executable at a time in the directory that it is started in, enabling infected executables to further infect others while maintaining the original functionality of the host applications.
 
 
 Structure of the ELF file before being infected
